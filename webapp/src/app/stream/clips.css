@@ -1,0 +1,80 @@
+.stream-controls:has(.clip-trigger) { grid-template-columns: auto auto minmax(0, 1fr) auto auto auto auto; }
+.clip-trigger { grid-column: 6; grid-row: 1; height: 44px; display: inline-flex; align-items: center; justify-content: center; gap: 7px; padding: 0 12px; border: 1px solid var(--line); border-radius: 5px; background: rgb(0 0 0 / .65); color: var(--dune-light); font: 400 13px var(--font-sans); }
+.clip-trigger svg { width: 18px; height: 18px; }
+.clip-trigger:hover { border-color: var(--dune); background: var(--interstellar); }
+.stream-controls:has(.clip-trigger) .fullscreen-toggle { grid-column: 7; }
+.clip-editor { width: min(860px, calc(100vw - 40px)); max-width: none; max-height: calc(100dvh - 40px); padding: 0; border: 1px solid var(--dune-dark); border-radius: 8px; margin: auto; overflow: auto; background: var(--panel); color: var(--whiteout); font: 400 14px/1.4 var(--font-sans); box-shadow: 0 24px 100px rgb(0 0 0 / .45); }
+.clip-editor::backdrop { background: rgb(0 0 0 / .78); }
+.clip-editor-content { min-width: 0; }
+.clip-editor button, .clip-editor input { font: inherit; }
+.clip-editor button { cursor: pointer; }
+.clip-editor button:disabled { opacity: .5; cursor: wait; }
+.clip-editor :focus-visible, .clip-trigger:focus-visible { outline: 2px solid var(--dune-light); outline-offset: 3px; }
+.clip-editor-header { display: flex; align-items: center; justify-content: space-between; padding: 18px 24px; border-bottom: 1px solid var(--line); }
+.clip-editor-header h2 { display: flex; align-items: center; gap: 9px; margin: 0; font-size: 20px; font-weight: 500; }
+.clip-editor-header h2 svg { width: 21px; height: 21px; color: var(--dune); }
+.clip-icon-button { display: grid; place-items: center; flex: 0 0 40px; width: 40px; height: 40px; padding: 9px; color: var(--urban); border: 1px solid transparent; border-radius: 4px; background: none; }
+.clip-icon-button:hover { color: var(--whiteout); background: rgb(255 255 255 / .07); }
+.clip-icon-button svg { width: 22px; height: 22px; }
+.clip-preview { position: relative; display: grid; place-items: center; width: 100%; background: var(--interstellar); }
+.clip-preview video { display: block; width: 100%; height: min(38dvh, max(140px, calc(100dvh - 500px)), 440px); min-height: 140px; object-fit: contain; }
+.clip-editing { min-width: 0; margin: 0; padding: 12px 24px 18px; border: 0; }
+.clip-transport { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-variant-numeric: tabular-nums; }
+.clip-transport > .clip-icon-button { border-color: var(--line); color: var(--dune); }
+.clip-time-divider { margin: 0 7px; color: var(--muted); }
+.clip-timeline { position: relative; height: 64px; margin: 0 8px; border-radius: 3px; background: var(--interstellar); touch-action: none; }
+.clip-timeline canvas { display: block; width: 100%; height: 100%; border-radius: 3px; }
+.clip-outside { position: absolute; top: 0; bottom: 0; background: rgb(0 0 0 / .68); pointer-events: none; }
+.clip-selection { position: absolute; top: 0; height: 100%; border-top: 3px solid var(--dune); border-bottom: 3px solid var(--dune); pointer-events: none; }
+.clip-editor .clip-selection-move { position: absolute; inset: 0; width: 100%; padding: 0; border: 0; border-radius: 0; background: transparent; pointer-events: auto; touch-action: none; user-select: none; cursor: grab; }
+.clip-editor .clip-selection-move[data-dragging] { cursor: grabbing; }
+.clip-editor .clip-selection-move:focus-visible { outline-offset: -4px; }
+.clip-handle { position: absolute; top: -3px; bottom: -3px; width: 16px; padding: 0; display: grid; place-items: center; border: 0; border-radius: 3px; background: var(--dune); color: var(--interstellar); pointer-events: auto; touch-action: none; cursor: ew-resize !important; z-index: 2; }
+.clip-handle::before { content: ""; position: absolute; inset: -8px -10px; }
+.clip-handle span { width: 2px; height: 20px; border-radius: 2px; background: var(--dune-dark); pointer-events: none; }
+.clip-handle-start { left: -8px; }
+.clip-handle-end { right: -8px; }
+.clip-playhead { position: absolute; top: 3px; bottom: 3px; width: 2px; background: var(--whiteout); pointer-events: none; }
+.clip-timeline-labels { display: flex; justify-content: space-between; padding: 7px 8px 0; color: var(--muted); font-size: 11px; font-variant-numeric: tabular-nums; }
+.clip-range-row { display: flex; justify-content: flex-end; margin: 12px 0 16px; }
+.clip-range-row > div { display: flex; gap: 5px; }
+.clip-range-row button { padding: 5px 8px; border: 1px solid var(--line); border-radius: 4px; background: transparent; color: var(--urban); font-size: 12px; white-space: nowrap; }
+.clip-range-row button[aria-pressed="true"] { border-color: var(--dune); color: var(--dune-light); background: rgb(199 192 153 / .09); }
+.clip-title-label { display: flex; flex-direction: column; gap: 7px; color: var(--urban); font-size: 12px; }
+.clip-title-label input { width: 100%; min-width: 0; padding: 10px 12px; border: 1px solid var(--line); border-radius: 4px; color: var(--whiteout); background: var(--interstellar); }
+.clip-editor-footer { display: flex; align-items: center; justify-content: flex-end; gap: 20px; padding: 16px 24px; border-top: 1px solid var(--line); }
+.clip-editor-footer p { margin: 0; color: var(--urban); font-size: 12px; }
+.clip-editor-footer p:empty { display: none; }
+.clip-download { display: inline-flex; align-items: center; justify-content: center; gap: 8px; min-height: 44px; padding: 0 16px; border: 1px solid var(--dune); border-radius: 4px; color: var(--interstellar); background: var(--dune); white-space: nowrap; }
+.clip-download:hover:not(:disabled) { background: var(--dune-light); }
+.clip-download svg { width: 18px; height: 18px; }
+.clip-error { margin: 14px 0 0; color: var(--terra-light); }
+.clip-preparing { min-height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 12px; padding: 40px; text-align: center; }
+.clip-preparing p { margin: 0; font-size: 16px; }
+.clip-preparing button { background: none; border: 0; color: var(--dune); text-decoration: underline; text-underline-offset: 4px; }
+.clip-loading-line { height: 2px; width: 120px; background: var(--dune-dark); overflow: hidden; }
+.clip-loading-line::after { content: ""; display: block; width: 40%; height: 100%; background: var(--dune); animation: clip-preparing 1.2s ease-in-out infinite alternate; }
+@keyframes clip-preparing { to { transform: translateX(180%); } }
+@media (prefers-reduced-motion: reduce) { .clip-loading-line::after { animation: none; width: 100%; } }
+@container player (max-width: 1140px) { .clip-trigger span { display: none; } .clip-trigger { width: 44px; padding: 10px; } }
+@container player (max-width: 980px) {
+  .stream-controls:has(.clip-trigger) { grid-template-columns: auto minmax(0, 1fr) auto auto auto; }
+  .stream-controls:has(.clip-trigger) .stream-timers { grid-column: 1 / -1; grid-row: 2; }
+  .stream-controls:has(.clip-trigger) .segment-timer-button { grid-column: 2; grid-row: 1; justify-self: end; }
+  .stream-controls:has(.clip-trigger) :is(.volume-control, .sound-enable-toggle) { grid-column: 3; grid-row: 1; }
+  .stream-controls:has(.clip-trigger) .clip-trigger { grid-column: 4; grid-row: 1; }
+  .stream-controls:has(.clip-trigger) .fullscreen-toggle { grid-column: 5; grid-row: 1; }
+  .stream-controls:has(.clip-trigger) .on-air-prompt-trigger { grid-column: 1 / -1; grid-row: 3; }
+  .stream-controls:has(.clip-trigger)[data-prompt] > :is(.dev-workshop-button, .dev-stream-button) { grid-row: 4; }
+}
+@media (max-width: 600px) {
+  .clip-editor { width: calc(100vw - 16px); max-height: calc(100dvh - 16px); }
+  .clip-editor-header { padding: 12px 16px; }
+  .clip-editor-header h2 { font-size: 18px; }
+  .clip-editing { padding: 10px 16px 16px; }
+  .clip-preview video { height: auto; aspect-ratio: 16 / 9; min-height: 0; }
+  .clip-range-row button { min-height: 36px; }
+  .clip-title-label input { font-size: 16px; }
+  .clip-editor-footer { padding: 14px 16px; flex-direction: column; align-items: stretch; gap: 14px; }
+  .clip-icon-button { min-width: 44px; height: 44px; }
+}

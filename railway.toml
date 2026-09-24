@@ -1,0 +1,7 @@
+[build]
+dockerfilePath = "apps/broadcaster/Dockerfile"
+
+[deploy]
+healthcheckPath = "/health"
+healthcheckTimeout = 300
+restartPolicyType = "ALWAYS"

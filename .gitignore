@@ -1,0 +1,20 @@
+# Package and build output
+node_modules/
+dist/
+.next/
+.convex/
+*.tsbuildinfo
+playwright-report/
+test-results/
+
+# Local secrets (API keys, stream keys); .env.example is the committed template.
+.env
+.env.local
+.env*
+!.env.example
+
+# Editor and OS state
+.vscode/
+.idea/
+.DS_Store
+.vercel

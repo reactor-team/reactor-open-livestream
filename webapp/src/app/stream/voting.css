@@ -1,0 +1,40 @@
+.audience-vote { width: min(100%, 720px); margin-inline: auto; color: var(--whiteout); }
+.player-frame:has(.audience-vote) .sound-gate-badge { display: none; }
+.player-frame:has(.audience-vote) .sound-enable-toggle { display: grid; place-items: center; }
+.vote-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 14px; }
+.vote-option { position: relative; display: flex; align-items: center; gap: 9px; min-height: 52px; padding: 9px 12px; overflow: hidden; text-align: left; color: var(--whiteout); background: rgb(0 0 0 / .54); backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px); border: 1px solid rgb(199 192 153 / .3); border-radius: 4px; transition: border-color 160ms, background-color 160ms, transform 100ms; }
+.vote-option:enabled:hover { background: rgb(0 0 0 / .66); border-color: var(--dune); }
+.vote-option:enabled:active { transform: translateY(1px); }
+.vote-option:focus-visible { outline: 2px solid var(--dune-light); outline-offset: 2px; }
+.vote-option[data-selected] { background: rgb(35 34 28 / .64); border-color: var(--dune-light); }
+.vote-option[data-winner] { color: var(--interstellar); background: rgb(199 192 153 / .82); border-color: var(--dune-light); }
+.vote-option:disabled { cursor: default; opacity: 1; }
+.vote-letter { display: grid; place-items: center; flex: 0 0 22px; height: 22px; border: 1px solid rgb(199 192 153 / .3); color: var(--dune-light); font: 10px var(--font-sans); border-radius: 3px; }
+.vote-letter svg { width: 15px; height: 15px; }
+.vote-option[data-winner] .vote-letter { color: var(--interstellar); border-color: rgb(0 0 0 / .25); }
+.vote-option-label { flex: 1; min-width: 0; font-size: 14px; line-height: 1.3; font-weight: 400; overflow-wrap: anywhere; }
+.vote-count { display: inline-block; min-width: 2ch; font: 11px var(--font-sans); font-variant-numeric: tabular-nums; text-align: right; }
+.vote-share { position: absolute; bottom: 0; left: 0; width: var(--vote-share); height: 2px; background: var(--dune); transition: width 280ms ease-out; }
+.vote-option[data-winner] .vote-share { background: var(--dune-dark); }
+.vote-preparing { margin: 0; padding: 10px 12px; color: var(--urban); font-size: 12px; background: rgb(0 0 0 / .54); border-radius: 4px; }
+.vote-error { margin: 8px 0 0; padding: 6px 10px; background: var(--interstellar); color: var(--terra-light); font-size: 12px; }
+.chat-scroll .channel-message { margin: 0; padding: 2px 0; border: 0; background: none; }
+.channel-message-line { margin: 0; }
+.channel-message-sender { margin-right: 4px; color: var(--dune); font: 500 13px var(--font-sans); }
+.channel-message-label { color: var(--urban); }
+.channel-message-result { color: var(--dune-light); }
+.channel-message-meta { display: inline-block; color: var(--urban); font: 10px/1.35 var(--font-sans); white-space: nowrap; }
+.chat-scroll .channel-options { gap: 2px; margin: 4px 0 1px; }
+.channel-options > li { display: grid; grid-template-columns: 12px minmax(0, 1fr); gap: 5px; align-items: baseline; color: var(--urban); font-size: 12px; line-height: 1.4; }
+.channel-option-letter { color: var(--dune); font: 10px var(--font-sans); }
+.channel-option-body { min-width: 0; overflow-wrap: anywhere; }
+.channel-option-count { display: inline; margin-left: 2px; color: var(--urban); white-space: nowrap; font: 10px var(--font-sans); }
+.channel-option-count .vote-count { min-width: 0; font: inherit; }
+.channel-options > li[data-winner] { color: var(--dune-light); }
+.channel-option-winner { display: inline-block; width: 12px; height: 12px; margin-left: 4px; vertical-align: -2px; }
+.schedule-audience { display: grid; gap: 7px; margin-bottom: 15px; padding-bottom: 14px; border-bottom: 1px solid var(--line); }
+.schedule-audience > strong { color: var(--dune-light); font-size: 15px; line-height: 1.35; }
+.schedule-audience > p { margin: 0; color: var(--urban); font-size: 12px; line-height: 1.5; }
+.schedule-audience > small { color: var(--dune); font-size: 11px; }
+@media (prefers-reduced-motion: reduce) { .vote-option, .vote-share { transition: none; } }
+@media (prefers-reduced-transparency: reduce) { .player-prompt .audience-vote .vote-option { background: var(--interstellar); backdrop-filter: none; -webkit-backdrop-filter: none; } .player-prompt .audience-vote .vote-option[data-winner] { background: var(--dune); } }

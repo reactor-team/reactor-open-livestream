@@ -1,0 +1,10 @@
+Reactor Open Livestream
+Copyright 2026 Reactor Technologies, Inc.
+
+Derived from Reactor Infinite Livestream.
+Licensed under the Apache License, Version 2.0 (see LICENSE).
+
+This distribution adapts setup, documentation, starter content, analytics defaults
+and public assets for independent whitelabel projects. It uses the hosted Reactor
+API; model weights and upstream private deployment history are not included.
+Third-party dependencies retain their respective licenses.

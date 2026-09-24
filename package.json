@@ -1,0 +1,26 @@
+{
+  "name": "reactor-open-livestream",
+  "private": true,
+  "packageManager": "pnpm@11.24.0",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev": "pnpm --dir webapp exec convex dev --start 'pnpm --dir .. dev:apps'",
+    "dev:apps": "concurrently -k -n web,broadcaster -c cyan,yellow 'pnpm --filter @reactor/infinite-web dev' 'CONVEX_URL=$NEXT_PUBLIC_CONVEX_URL pnpm --filter @reactor/infinite-broadcaster dev'",
+    "dev:web": "pnpm --filter @reactor/infinite-web dev",
+    "dev:broadcaster": "pnpm --filter @reactor/infinite-broadcaster dev",
+    "lint": "pnpm -r --if-present lint",
+    "setup:local": "pnpm --dir webapp exec convex dev --configure --once",
+    "test": "pnpm -r test",
+    "typecheck": "pnpm -r typecheck",
+    "seed:office": "pnpm --dir webapp exec convex run seed:office",
+    "seed:remove-office": "pnpm --dir webapp exec convex run seed:removeOffice",
+    "setup:check": "node scripts/check-setup.mjs"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "typescript": "^5.9.2"
+  }
+}

@@ -1,0 +1,13 @@
+packages:
+  - webapp
+  - apps/*
+  - packages/*
+
+allowBuilds:
+  core-js: false
+  esbuild: true
+  playwright: true
+  unrs-resolver: false
+
+minimumReleaseAgeExclude:
+  - '@reactor-team/js-sdk@3.0.1'

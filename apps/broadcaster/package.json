@@ -1,0 +1,31 @@
+{
+  "name": "@reactor/infinite-broadcaster",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "tsx scripts/build.ts",
+    "dev": "pnpm build && concurrently -k 'pnpm dev:build' 'pnpm dev:server'",
+    "dev:build": "tsx scripts/build.ts --watch",
+    "dev:server": "BROADCASTER_MANUAL=1 node --env-file-if-exists=../../webapp/.env.local --env-file-if-exists=../../webapp/.env.development.local --watch dist/server.js",
+    "start": "node dist/supervisor.js",
+    "test": "node --import tsx --test 'test/**/*.test.ts'",
+    "typecheck": "tsc -p tsconfig.json"
+  },
+  "dependencies": {
+    "@reactor-team/js-sdk": "^3.0.1",
+    "@reactor/infinite-contracts": "workspace:*",
+    "convex": "^1.45.0",
+    "livekit-client": "^2.22.2",
+    "livekit-server-sdk": "^2.18.0",
+    "playwright": "^1.62.1",
+    "zod": "^4.5.4"
+  },
+  "devDependencies": {
+    "@types/node": "^24.3.0",
+    "concurrently": "^9.2.1",
+    "esbuild": "^0.25.9",
+    "tsx": "^4.23.13",
+    "typescript": "^5.9.2"
+  }
+}

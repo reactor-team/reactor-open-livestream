@@ -1,0 +1,29 @@
+.schedule-arrival-toast {
+  position: fixed;
+  z-index: 8;
+  visibility: hidden;
+  width: max-content;
+  max-width: min(280px, calc(100vw - 24px));
+  min-height: 30px;
+  margin: 0;
+  padding: 5px 9px;
+  display: flex;
+  align-items: center;
+  border: 1px solid color-mix(in srgb, var(--dune) 24%, transparent);
+  border-radius: 3px;
+  background: color-mix(in srgb, var(--interstellar) 58%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: var(--whiteout);
+  font: 400 13px/1.4 var(--font-sans);
+  text-align: left;
+  text-transform: none;
+  letter-spacing: normal;
+  cursor: pointer;
+}
+.schedule-arrival-toast:hover { border-color: var(--dune); }
+.schedule-arrival-toast:focus-visible { outline: 2px solid var(--dune-light); outline-offset: 3px; }
+.schedule-arrival-toast[data-flying] { pointer-events: none; }
+.schedule-arrival-toast::before { content: "“"; }
+.schedule-arrival-toast::after { content: "”"; }
+.schedule-arrival-excerpt { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }

@@ -1,0 +1,11 @@
+{
+  "asset": "src/app/opengraph-image.png",
+  "width": 1200,
+  "height": 630,
+  "sha256": "45108194868309e10296987215cffd2c73e5e2395c2d6c801293417abaded5cf",
+  "copy": {
+    "title": "REACTOR TV",
+    "subtitle": "infinite AI video livestream"
+  },
+  "brandSource": "https://www.figma.com/design/tF05tESyAM94KcjflwE0W0?fuid=1654949698528695622&prev-plan-id=1654949700021437311&prev-plan-type=team&prev-selected-view=recentsAndSharing&prev-tab=recently-viewed"
+}

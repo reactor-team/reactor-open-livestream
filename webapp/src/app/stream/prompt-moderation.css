@@ -1,0 +1,62 @@
+.chat-private-prompt {
+  margin-block: 6px;
+  padding-left: 10px;
+  border-left: 1px solid var(--line);
+  color: var(--urban);
+}
+.chat-private-prompt .chat-message-body { color: var(--urban); }
+.chat-private-prompt .chat-message-body b { color: var(--urban); background: transparent; padding-left: 0; }
+.private-prompt-audience, .private-prompt-status {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+.private-prompt-audience { margin-bottom: 4px; color: var(--urban); }
+.private-prompt-status { margin-top: 5px; color: var(--dune); }
+.private-prompt-audience svg, .private-prompt-status svg { width: 14px; height: 14px; flex: 0 0 14px; }
+.chat-private-prompt[data-state="rejected"] .private-prompt-status { color: var(--terra-light); }
+.private-prompt-reason { margin: 3px 0 0; font-size: 12px; line-height: 1.5; }
+.chat-private-prompt .private-prompt-edit {
+  min-height: 32px;
+  padding: 5px 0;
+  border: 0;
+  background: transparent;
+  color: var(--dune);
+  font-size: 12px;
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.private-prompt-spinner { animation: prompt-check-spin 1s linear infinite; }
+@keyframes prompt-check-spin { to { transform: rotate(360deg); } }
+.prompt-notice {
+  position: fixed;
+  z-index: 210;
+  top: max(80px, calc(env(safe-area-inset-top) + 12px));
+  right: max(16px, env(safe-area-inset-right));
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  width: min(400px, calc(100vw - 32px));
+  padding: 14px;
+  border: 1px solid var(--dune-dark);
+  background: var(--interstellar);
+  color: var(--whiteout);
+  box-shadow: 0 8px 28px rgb(0 0 0 / 40%);
+  font-family: var(--font-sans);
+  font-size: 14px;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+}
+.prompt-notice > svg { width: 18px; height: 18px; margin-top: 2px; flex: 0 0 18px; color: var(--terra-light); }
+.prompt-notice > div { min-width: 0; flex: 1; }
+.prompt-notice strong { font-weight: 500; }
+.prompt-notice p { margin: 4px 0 0; color: var(--urban); }
+.prompt-notice button { display: grid; place-items: center; min-width: 32px; min-height: 32px; padding: 4px; margin: -6px -6px 0 0; border: 0; background: transparent; color: var(--urban); }
+.prompt-notice button svg { width: 20px; height: 20px; }
+@media (prefers-reduced-motion: reduce) { .private-prompt-spinner { animation: none; } }
+@media (pointer: coarse) { .private-prompt-edit, .prompt-notice button { min-height: 44px; } .prompt-notice button { min-width: 44px; } }
