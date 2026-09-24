@@ -1,3 +1,5 @@
+![Reactor Open Livestream - audience-driven AI video](output/imagegen/reactor-repo-banners/reactor-open-livestream/banner-dune.png)
+
 # Reactor Open Livestream
 
 Build a continuous AI video stream that your audience can steer. This open-source, whitelabel starter includes a live player, shared chat, viewer prompts, voting, an admin panel, and an editable office scene.
